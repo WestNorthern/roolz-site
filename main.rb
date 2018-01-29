@@ -61,7 +61,7 @@ get '/' do
 	erb :home
 end
 
-post '/home' do
+post '/add_to_hash' do
 	@key = params[:hashkey]
 	@value = params[:hashvalue]
 	if @value.to_i.to_s == @value
@@ -70,6 +70,12 @@ post '/home' do
 	@old_hash = eval(params[:fullhash])
 	@new_hash = @old_hash.merge!(@key => @value)
 	@fullhash = symbol_hashilate(@new_hash)
+
+	erb :home
+end
+
+post '/run_rool' do
+	@fullhash = eval(params[:fullhash])
 
 	erb :home
 end

@@ -1,4 +1,26 @@
-<h1>Hello world!</h1>
+<h1>Test of the form</h1>
+
+<h4>Hash</h4>
+<hr>
+<hr>
+<% if @fullhash == {} %>
+	<p>Add Some Data To the Hash</p>
+<% else %>
+	<%= @fullhash %>
+<% end %>
+<hr>
+<hr>
+
+<form action="/add_to_hash" method="POST">
+
+	<input type="text" class="new-key" name="hashkey" placeholder="Key">
+	<input type="text" class="new-value" name="hashvalue" placeholder="Value">
+	<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
+	<button type="submit" class="btn btn-primary">Add Data to Hash</button>
+</form>
+
+<br>
+<br>
 
 <h3>The Raw JSON</h3>
 <p><%= @test_raw_json %></p>
@@ -16,26 +38,6 @@
 <hr>
 
 
-<h1>Test of the form</h1>
-
-<h4>Hash</h4>
-<hr>
-<hr>
-<% if @fullhash == {} %>
-	<p>Add Some Data To the Hash</p>
-<% else %>
-	<%= @fullhash %>
-<% end %>
-<hr>
-<hr>
-
-<form action="/home" method="POST">
-
-	<input type="text" class="new-key" name="hashkey" placeholder="Key">
-	<input type="text" class="new-value" name="hashvalue" placeholder="Value">
-	<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
-	<button type="submit" class="btn btn-primary">Add Data to Hash</button>
-</form>
 
 
 
