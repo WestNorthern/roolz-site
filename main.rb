@@ -127,17 +127,6 @@ post '/run_rool' do
 	erb :home
 end
 
-post '/email_rool' do
-	@fullhash = eval(params[:fullhash])
-	@hash_key = params[:hash_key]
-	@rool = Rool::Email.new(@hash_key)
-	p @rool
-	@rool.process(@fullhash)
-	@result = display_rool(JSON.parse(@rool.to_json))
-
-	erb :home
-end
-
 
 		
 	
