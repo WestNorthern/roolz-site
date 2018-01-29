@@ -90,11 +90,11 @@ post '/add_to_hash' do
 	@rool_array = ['basic', 'all', 'blank', 'email', 'greater_than', 'less_than', 'equal']
 	@key = params[:hashkey]
 	@value = params[:hashvalue]
-	if @value.to_i.to_s == @value
+	# Address this first. Need to evaluate things passed in as arrays and hashes
+	if @value.include? ','
+		@value = @value.split(',').map(&:to_i)
+	elsif @value.to_i.to_s == @value
 		@value = @value.to_i
-	end
-	if eval(@value).kind_of?(Array)
-		@value = eval(@value)
 	end
 	@old_hash = eval(params[:fullhash])
 	@new_hash = @old_hash.merge!(@key => @value)
