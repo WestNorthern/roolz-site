@@ -1,12 +1,33 @@
 <h1>Hello world!</h1>
 
-<%= @test %>
+<h3>The Raw JSON</h3>
+<p><%= @test_raw_json %></p>
 
-<p><%= @test_two %></p>
+<h3>The Type of Object (Title)</h3>
+<%= @test_type_of %>
 
 <br>
+<h3>The Display</h3>
+<p><%= @test_display %></p>
 
-<p><%= @test_three %></p>
+
+<hr>
+<hr>
+<hr>
+
+
+<h1>Test of the form</h1>
+
+<form class="post-box" id="<%= post.created_at %>" action="/profile" method="POST">
+	<div class="post-title"><%= post.title %></div>
+	<div class="post-author">
+		<input type="hidden" name="this_user" value="<%= post.user.name %>">
+		<a onclick="document.getElementById('<%= post.created_at %>').submit();"><%= post.user.name %></a>
+	</div>
+	<div class="post-time"><%= post.created_at.to_formatted_s(:short) %></div>
+	<div class="post-content"><%= post.content %>?!</div>
+</form>
+
 
 
 
