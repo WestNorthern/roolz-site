@@ -12,7 +12,6 @@
 <hr>
 
 <form action="/add_to_hash" method="POST">
-
 	<input type="text" class="new-key" name="hashkey" placeholder="Key">
 	<input type="text" class="new-value" name="hashvalue" placeholder="Value">
 	<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
@@ -21,17 +20,51 @@
 
 <br>
 <br>
+<% if @key_array %>
+	<h1>Test Your Data</h1>
+	<form action="/run_rool" method="POST" id="rool-config">
+		<input type="text" class="operand" name="operand" placeholder="Operand">
+		<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
+		<button type="submit" class="btn btn-primary">Test A Rule</button>
+	</form>
 
-<h3>The Raw JSON</h3>
-<p><%= @test_raw_json %></p>
+	<select name="rool" form="rool-config">
 
-<h3>The Type of Object (Title)</h3>
-<%= @test_type_of %>
+		<% @rool_array.each do |rool| %>
+	  <option value="<%= rool %>"><%= rool.capitalize %></option>
+	  <% end %>
+	  
+	</select>
 
-<br>
-<h3>The Display</h3>
-<p><%= @test_display %></p>
+	<select name="hash_key" form="rool-config">
 
+		<% @key_array.each do |key| %>
+	  <option value="<%= key %>"><%= key %></option>
+	  <% end %>
+	  
+	</select>
+
+	<hr>
+	
+
+
+	<form action="/email_rool" method="POST" id="email_rool">
+		<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
+		<select name="hash_key" form="email_rool">
+
+			<% @key_array.each do |key| %>
+	  		<option value="<%= key %>"><%= key %></option>
+	  	<% end %>
+	  
+		</select>
+		<button type="submit" class="btn btn-primary">Test Email</button>
+	</form>
+<% end %>
+
+<hr>
+
+<h1>The Details</h1>
+<%= @result if @result != nil %>
 
 <hr>
 <hr>
