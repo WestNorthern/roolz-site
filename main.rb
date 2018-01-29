@@ -13,12 +13,12 @@ def symbol_hashilate(my_hash = {})
 end
 
 def bad_hack(string)
-	if string == 'basic'
+	if string == ''
 		return Rool::Basic
 	end
-	if string == 'all'
-		return Rool::All
-	end
+	# if string == 'all'
+	# 	return Rool::All
+	# end
 	if string == 'blank'
 		return Rool::Blank
 	end
@@ -27,6 +27,9 @@ def bad_hack(string)
 	end
 	if string == 'greater_than'
 		return Rool::GreaterThan
+	end
+	if string == 'include'
+		return Rool::Include
 	end
 	if string == 'less_than'
 		return Rool::LessThan

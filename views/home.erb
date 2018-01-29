@@ -25,24 +25,26 @@
 	<form action="/run_rool" method="POST" id="rool-config">
 		<input type="text" class="operand" name="operand" placeholder="Operand">
 		<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
+  	<select class="browser-default" form="rool-config" name="rool">
+    	<option value="" disabled selected>Choose a Rule</option>
+    	<% @rool_array.each do |rool| %>
+	  		<option value="<%= rool %>"><%= rool.capitalize %></option>
+	  	<% end %>
+  	</select>
+  	<select class="browser-default" name="hash_key" form="rool-config">
+  		<option value="" disabled selected>Choose a Key</option>
+			<% @key_array.each do |key| %>
+  			<option value="<%= key %>"><%= key %></option>
+  		<% end %>
+		</select>
 		<button type="submit" class="btn btn-primary">Test A Rule</button>
 	</form>
 
-	<select name="rool" form="rool-config">
 
-		<% @rool_array.each do |rool| %>
-	  <option value="<%= rool %>"><%= rool.capitalize %></option>
-	  <% end %>
-	  
-	</select>
 
-	<select name="hash_key" form="rool-config">
 
-		<% @key_array.each do |key| %>
-	  <option value="<%= key %>"><%= key %></option>
-	  <% end %>
-	  
-	</select>
+
+
 
 	<hr>
 
@@ -58,6 +60,30 @@
 <% end %>
 
 
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#test1">Test 1</a></li>
+      <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+      <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+      <li class="tab col s3"><a href="#test4">Test 4</a></li>
+    </ul>
+  </div>
+  <div id="test1" class="col s12">Test 1</div>
+  <div id="test2" class="col s12">
+  	
+  </div>
+  <div id="test3" class="col s12">Test 3</div>
+  <div id="test4" class="col s12">Test 4</div>
+</div>
+
+
+<script>
+	$(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+</script>
+  
 
 
 
