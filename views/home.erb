@@ -45,30 +45,19 @@
 	</select>
 
 	<hr>
+
+	<hr>
+	<% if @result != nil %>
+		<h1>The Details</h1>
+		<%= @result %>
+		<hr>
+		<hr>
+	<% end %>
+
 	
-
-
-	<form action="/email_rool" method="POST" id="email_rool">
-		<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
-		<select name="hash_key" form="email_rool">
-
-			<% @key_array.each do |key| %>
-	  		<option value="<%= key %>"><%= key %></option>
-	  	<% end %>
-	  
-		</select>
-		<button type="submit" class="btn btn-primary">Test Email</button>
-	</form>
 <% end %>
 
-<hr>
 
-<h1>The Details</h1>
-<%= @result if @result != nil %>
-
-<hr>
-<hr>
-<hr>
 
 
 

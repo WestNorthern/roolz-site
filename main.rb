@@ -93,6 +93,9 @@ post '/add_to_hash' do
 	if @value.to_i.to_s == @value
 		@value = @value.to_i
 	end
+	if eval(@value).kind_of?(Array)
+		@value = eval(@value)
+	end
 	@old_hash = eval(params[:fullhash])
 	@new_hash = @old_hash.merge!(@key => @value)
 	@fullhash = symbol_hashilate(@new_hash)
