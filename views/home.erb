@@ -18,14 +18,23 @@
 
 <h1>Test of the form</h1>
 
-<form class="post-box" id="<%= post.created_at %>" action="/profile" method="POST">
-	<div class="post-title"><%= post.title %></div>
-	<div class="post-author">
-		<input type="hidden" name="this_user" value="<%= post.user.name %>">
-		<a onclick="document.getElementById('<%= post.created_at %>').submit();"><%= post.user.name %></a>
-	</div>
-	<div class="post-time"><%= post.created_at.to_formatted_s(:short) %></div>
-	<div class="post-content"><%= post.content %>?!</div>
+<h4>Hash</h4>
+<hr>
+<hr>
+<% if @fullhash == {} %>
+	<p>Add Some Data To the Hash</p>
+<% else %>
+	<%= @fullhash %>
+<% end %>
+<hr>
+<hr>
+
+<form action="/home" method="POST">
+
+	<input type="text" class="new-key" name="hashkey" placeholder="Key">
+	<input type="text" class="new-value" name="hashvalue" placeholder="Value">
+	<input type="hidden" class="new-value" value='<%= @fullhash %>' name="fullhash">
+	<button type="submit" class="btn btn-primary">Add Data to Hash</button>
 </form>
 
 

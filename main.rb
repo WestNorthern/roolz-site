@@ -6,6 +6,9 @@ require 'json'
 
 set :database, "sqlite3:main.sqlite3"
 
+def symbol_hashilate(my_hash = {})
+	my_hash = my_hash.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+end
 
 def display_rool(hash, iteration = 0)
   iteration += 1
@@ -41,6 +44,7 @@ def display_rool(hash, iteration = 0)
 end
 
 get '/' do
+	@fullhash = Hash.new
 	@data = {foo: 12, bar: [1, 2, 3, 4, 5]}
 	@nested_rule = Rool::All.new(Rool::Equal.new(:foo, 10), Rool::Send.new(:bar, 30),Rool::All.new(Rool::Equal.new(:foo, 10), Rool::Send.new(:bar, 30)))
 	@nested_rule.process(@data)
@@ -54,6 +58,19 @@ get '/' do
 
 	# @test_three = display_rool(@test)
 	puts @test
+	erb :home
+end
+
+post '/home' do
+	@key = params[:hashkey]
+	@value = params[:hashvalue]
+	if @value.to_i.to_s == @value
+		@value = @value.to_i
+	end
+	@old_hash = eval(params[:fullhash])
+	@new_hash = @old_hash.merge!(@key => @value)
+	@fullhash = symbol_hashilate(@new_hash)
+
 	erb :home
 end
 		
