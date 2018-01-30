@@ -8,6 +8,7 @@ gem 'sinatra-activerecord'
 gem 'rake'
 gem 'roolz', :git => 'https://github.com/WestNorthern/roolz'
 gem 'json'
+gem 'oj'
 
 group :production do
   gem 'pg'
