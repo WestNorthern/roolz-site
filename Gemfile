@@ -10,4 +10,7 @@ gem 'rake'
 gem 'roolz', :git => 'https://github.com/WestNorthern/roolz'
 gem 'json'
 
+group :production do
+  gem 'pg'
+end
 	
