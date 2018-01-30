@@ -1,8 +1,8 @@
 require 'sinatra'
 require 'sinatra/base'
-require 'sinatra/activerecord'
 require 'roolz'
 require 'json'
+require 'oj'
 
 class RoolsSite < Sinatra::Base
 

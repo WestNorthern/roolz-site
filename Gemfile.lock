@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/WestNorthern/roolz
-  revision: acc517d6ca6b1fcb629784443c44170f702152c0
+  revision: c187f0e609350ed8ba9fc3e608f88e46bf54ac37
   specs:
     roolz (0.0.0)
 
