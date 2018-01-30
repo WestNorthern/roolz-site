@@ -52,6 +52,7 @@ DEPENDENCIES
   json
   oj
   pg
+  rack
   rake
   roolz!
   sinatra (~> 2.0)
