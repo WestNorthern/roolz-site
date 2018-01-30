@@ -10,8 +10,6 @@ gem 'roolz', :git => 'https://github.com/WestNorthern/roolz'
 gem 'json'
 gem 'oj'
 gem 'rack'
+gem 'pg'
 
-group :production do
-  gem 'pg'
-end
 	

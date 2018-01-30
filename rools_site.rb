@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require './models'
 require 'roolz'
 require 'json'
 

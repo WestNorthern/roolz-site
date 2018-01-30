@@ -1,5 +1,5 @@
 require 'sinatra/activerecord/rake'
 
-require './rools_site'
+require './main'
     
   
