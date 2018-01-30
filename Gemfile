@@ -11,5 +11,6 @@ gem 'json'
 gem 'oj'
 gem 'rack'
 gem 'pg'
+gem 'bundler'
 
 	

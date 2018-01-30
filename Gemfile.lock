@@ -49,6 +49,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bundler
   json
   oj
   pg
