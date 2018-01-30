@@ -1,1 +1,1 @@
-web: bundle exec ruby rools_site.rb -p $PORT
+web: bundle exec ruby main.rb -p $PORT
