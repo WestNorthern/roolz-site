@@ -7,7 +7,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 gem 'rake'
-gem 'roolz'
+gem 'roolz', :git => 'https://github.com/WestNorthern/roolz'
 gem 'json'
 
 	

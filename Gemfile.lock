@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/WestNorthern/roolz
+  revision: acc517d6ca6b1fcb629784443c44170f702152c0
+  specs:
+    roolz (0.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,7 +29,6 @@ GEM
     rack-protection (2.0.0)
       rack
     rake (12.3.0)
-    roolz (0.0.0)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -45,7 +50,7 @@ DEPENDENCIES
   activerecord
   json
   rake
-  roolz
+  roolz!
   sinatra (~> 2.0)
   sinatra-activerecord
   sqlite3

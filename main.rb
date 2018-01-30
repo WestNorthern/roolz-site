@@ -4,21 +4,20 @@ require './models'
 require 'roolz'
 require 'json'
 
-set :database, "sqlite3:main.sqlite3"
 
-@rool_array = ['basic', 'all', 'blank', 'email', 'greater_than', 'less_than', 'equal']
+@rool_array = ['', 'blank', 'email', 'greater_than', 'less_than', 'equal', 'regex', 'include', 'subset']
 
 def symbol_hashilate(my_hash = {})
 	my_hash = my_hash.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
 end
 
 def bad_hack(string)
-	if string == 'basic'
+	if string == ''
 		return Rool::Basic
 	end
-	if string == 'all'
-		return Rool::All
-	end
+	# if string == 'all'
+	# 	return Rool::All
+	# end
 	if string == 'blank'
 		return Rool::Blank
 	end
@@ -28,11 +27,20 @@ def bad_hack(string)
 	if string == 'greater_than'
 		return Rool::GreaterThan
 	end
+	if string == 'include'
+		return Rool::Include
+	end
 	if string == 'less_than'
 		return Rool::LessThan
 	end
 	if string == 'equal'
 		return Rool::Equal
+	end
+	if string == 'subset'
+		return Rool::Subset
+	end
+	if string == 'regex'
+		return Rool::Regex
 	end
 end
 
@@ -87,7 +95,7 @@ get '/' do
 end
 
 post '/add_to_hash' do
-	@rool_array = ['basic', 'all', 'blank', 'email', 'greater_than', 'less_than', 'equal']
+@rool_array = ['', 'blank', 'email', 'greater_than', 'less_than', 'equal', 'regex', 'include', 'subset']
 	@key = params[:hashkey]
 	@value = params[:hashvalue]
 	# Address this first. Need to evaluate things passed in as arrays and hashes
@@ -105,7 +113,7 @@ post '/add_to_hash' do
 end
 
 post '/run_rool' do
-	@rool_array = ['basic', 'all', 'blank', 'email', 'greater_than', 'less_than', 'equal']
+@rool_array = ['', 'blank', 'email', 'greater_than', 'less_than', 'equal', 'regex', 'include', 'subset']
 	@fullhash = eval(params[:fullhash])
 	puts "this is the parsed hash"
 	p @fullhash
